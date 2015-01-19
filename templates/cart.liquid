@@ -49,7 +49,8 @@
           {% comment %}
           Line Item Properties
           {% endcomment %}
-          {% if item.properties.size > 0 %}
+          {% assign properties_amount = item.properties | size %}
+          {% if properties_amount > 0 %}
           <p>
             {% for p in item.properties %}
               {% unless p.last == blank %}
