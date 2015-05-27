@@ -1,7 +1,7 @@
 Skeleton theme
 ============
 
-The Skeleton theme is a simplified Shopify theme, to be used as a "blank slate" starting point for theme designers.
+The Skeleton theme is a simplified Virto Commerce theme adopted from Shopify theme using the same name, to be used as a "blank slate" starting point for theme designers.
 
 <b>Features:</b>
 - Almost no theme settings. Ready to be customized any way you want. 
