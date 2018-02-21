@@ -28,6 +28,9 @@ Basic structure
 ├── snippets
 │   └── optional custom code snippets
 ├── templates
+|   └── customers
+|       ├── login.liquid
+|       └── register.liquid
 │   ├── 404.liquid
 │   ├── article.liquid
 │   ├── blog.liquid
