@@ -2,13 +2,13 @@
 {% if collection-grid-item == '' %}{% assign collection-grid-item = 'three-per-row' %}{% endif %}
 
 <li class="{{ collection-grid-item }} centered">
-
+ 
   <div class="coll-image-wrap">
     <a href="{{ collection.url }}">
       {% if collection.image %}
-      <img src="{{ collection | img_url: 'grande' }}" alt="{{ collection.image.alt | escape }}" />
+      <img src="{{ collection | img_url }}" alt="{{ collection.image.alt | escape }}" />
       {% else %}
-      <img src="{{ collection.products.first | img_url: 'grande' }}" alt="{{ collection.title | escape }}" />
+      <img src="{{ collection.products.first | img_url }}" alt="{{ collection.title | escape }}" />
       {% endif %}
     </a>
   </div><!-- .coll-image-wrap -->

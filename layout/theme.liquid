@@ -40,6 +40,7 @@
   {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
   {% endif %}
   
+  <!-- Additional Shopify helpers that will likely be added to the global shopify_common.js some day soon. -->
   {{ 'shopify_common.js'  | asset_url | script_tag }}
 
   {{ 'option_selection.js' | shopify_asset_url | script_tag }}
@@ -87,6 +88,15 @@
         
       </div>
       
+      {% comment %}
+        It would be nice if the logo was a shop setting, rather than a theme setting.
+        But for now, it is a theme setting. The shop logo is uploaded on the theme settings page.
+        Link to the theme settings page of currently published theme will always be:
+        http://www.shopify.com/admin/themes/current/settings.
+        To add theme settings to a theme, see this: http://docs.shopify.com/themes/theme-templates/settings
+        Theme settings are added to http://www.shopify.com/admin/themes/current#config/settings.html
+      {% endcomment %}
+    
       <div class="masthead full column clear centered" role="banner">
         {% if settings.use_logo %}
         <a id="logo" href="/">
@@ -158,7 +168,8 @@
 
     </footer>
 
-     <!--[if lt IE 8]>
+    {% comment %}Shopify does not support Internet Explorer 6 nor 7. It does encourage themes to support IE8 until the end of 2014.{% endcomment %}
+    <!--[if lt IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
     
