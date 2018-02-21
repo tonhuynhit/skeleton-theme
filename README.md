@@ -10,6 +10,9 @@ The Skeleton theme is a simplified Virto Commerce theme adopted from Shopify the
 - Include SVG images to style select elements and cart icon.
 - Commented code to teach you Liquid concepts in practice.
 
+![skeleton-catalog](https://user-images.githubusercontent.com/10347112/36481375-4f3a484c-1718-11e8-8595-7bd1f1184338.png)
+![skeleton-product-1](https://user-images.githubusercontent.com/10347112/36481376-4f5aef34-1718-11e8-9b82-e8deb352656c.png)
+
 Getting started
 ---------------------
 1. <a href="https://github.com/virtocommerce/skeleton-theme/archive/master.zip">Download</a> the latest version
