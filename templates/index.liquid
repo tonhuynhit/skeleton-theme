@@ -15,7 +15,7 @@
   Learn how to read theme settings in your theme.
 {% endcomment %}
 
-{% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
+{% comment %} {% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
 {% assign page = pages[settings.homepage_page] %}
 <div class="rte grid-margins">
   {{ page.content }}
@@ -36,4 +36,18 @@
 </li>
 {% endfor %}
 </ul>
-{% endunless %}
+{% endunless %} {% endcomment %}
+
+{% include 'home-slide' %}
+
+{% include 'product-discount' %}
+
+{% include 'home-banner' %}
+
+{% include 'home-products' %}
+
+{% include 'testimonial' %}
+
+{% include 'news' %}
+
+{% include 'newsletter' %}
