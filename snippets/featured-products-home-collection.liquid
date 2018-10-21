@@ -1,0 +1,11 @@
+{% assign collection = collections[settings.featured_products_home_collection] %}
+<!-- Product Area Start -->
+<div class="product-area bg-image-1 pt-100 pb-95">
+    <div class="container">
+        <div class="featured-product-active hot-flower owl-carousel product-nav">
+            {% for product in collection.products limit: settings.featured_products_home_num %}
+                {% include 'featured-products-home-collection-item' with product %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

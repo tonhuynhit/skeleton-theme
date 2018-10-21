@@ -1,3 +1,5 @@
+{% assign collection = collections[settings.home_new_products] %}
+
 <!-- New Products Start -->
 <div class="product-area gray-bg pt-90 pb-65">
     <div class="container">
@@ -9,7 +11,12 @@
         <div class="tab-content jump">
             <div class="tab-pane active">
                 <div class="featured-product-active owl-carousel product-nav">
-                    <div class="product-wrapper-single">
+                    
+                    {% for product in collection.products limit: settings.home_new_products_num %}
+                        {% include 'home-new-product-item' with product %}
+                    {% endfor %}
+
+                    {% comment %} <div class="product-wrapper-single">
                         <div class="product-wrapper mb-30">
                             <div class="product-img">
                                 <a href="product-details.html">
@@ -365,7 +372,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>

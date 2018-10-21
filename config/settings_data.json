@@ -20,7 +20,15 @@
       "homepage_page": "frontpage",
       "homepage_collection": "frontpage",
       "products_per_row": "3",
-      "number_of_rows": "4"
+      "number_of_rows": "4",
+      "nav_linklist": "main-menu",
+      "mega_menu_shop": true,
+      "supported_currencies": "VND EUR USD",
+      "default_currency": "VND",
+      "featured_products_home_collection": "aconite",
+      "featured_products_home_num": 4,
+      "home_new_products": "v-new-products",
+      "home_new_products_num": 8
     }
   }
 }

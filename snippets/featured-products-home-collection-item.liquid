@@ -1,0 +1,52 @@
+{% comment %} input parameter: product {% endcomment %}
+
+{% assign variant_tmp = product.selected_or_first_available_variant  %}
+{% for variant in product.variants %}
+{% if variant.available == true and variant.price < variant_tmp.price %}
+{% assign variant_tmp = variant %}	
+{% endif %}
+{% endfor %}
+
+<div class="product-wrapper">
+    <div class="product-img">
+        <a href="{{ product.url | absolute_url }}">
+            <img src="{{ product.featured_image | product_img_url }}" alt="{{ product.title }}">
+        </a>
+        {% comment %} <span>-20%</span> {% endcomment %}
+        <div class="product-action">
+            <a class="action-wishlist" href="#" title="{{'wishlist.general.add_to_list' | t }}">
+                <i class="ion-android-favorite-outline"></i>
+            </a>
+            <a class="action-cart" href="#" title="{{'products.product.add_to_cart' | t }}">
+                <i class="ion-ios-shuffle-strong"></i>
+            </a>
+            <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="{{'products.product.quick_view' | t }}">
+                <i class="ion-ios-search-strong"></i>
+            </a>
+        </div>
+    </div>
+    <div class="product-content text-left">
+        <div class="product-hover-style">
+            <div class="product-title">
+                <h4>
+                    <a href="{{ product.url | absolute_url }}" title="{{ product.title }}">
+                        {{ product.title }}
+                    </a>
+                </h4>
+            </div>
+            <div class="cart-hover">
+                <h4><a href="{{ product.url | absolute_url }}">+ {{'products.product.add_to_cart' | t }}</a></h4>
+            </div>
+        </div>
+        <div class="product-price-wrapper">
+            {% if product.available %}
+                <span>{{ variant_tmp.price | money }} -</span>
+                {% if variant_tmp.compare_at_price > variant_tmp.price %}
+                    <span class="product-price-old">{{ variant_tmp.compare_at_price | money }}</span>
+                 {% endif %}
+            {% else %}
+                <span class="sold_out">{{'products.product.sold_out' | t}}</span>
+            {% endif %}
+        </div>
+    </div>
+</div>

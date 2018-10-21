@@ -1,0 +1,17 @@
+{% comment %} The with parameter assigns a value to a variable inside a snippet that shares the same name as the snippet. {% endcomment %}
+<ul class="mega-menu">
+    {% for link in mega-menu.links %}
+        {% capture title %}{{ link.title | handle }}{% endcapture %}
+        <li>
+            <ul>
+                <li class="mega-menu-title">{{title}}</li>
+                {% for sub_link in linklists[title].links %}
+                    {% capture subtitle %}{{ sub_link.title | handle }}{% endcapture %}
+                    <li>
+                        <a href="{{ sub_link.url }}">{{subtitle}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>

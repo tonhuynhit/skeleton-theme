@@ -1,0 +1,24 @@
+
+<ul class="submenu">
+{% for link in sub-menu.links %}
+    {% capture title %}{{ link.title | handle }}{% endcapture %}
+    {% if linklists[title] and linklists[title].links.size > 0 %}
+        {% assign hasChildren = true %}
+    {% endif %}
+     <li>
+        <a href="{{ link.url }}">{{title}}
+            {% if hasChildren %}
+                <span><i class="ion-ios-arrow-right"></i></span>
+            {% endif %}
+        </a>
+        {% if hasChildren %}
+            <ul class="lavel-menu">
+                {% for item in linklists[title].links %}
+                    {% capture subtitle %}{{ item.title | handle }}{% endcapture %}
+                    <li><a href="{{ item.url }}">{{subtitle}}</a></li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+     </li>
+{% endfor %}
+</ul>
