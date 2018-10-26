@@ -1,0 +1,102 @@
+{% comment %} product-item {% endcomment %}
+{% comment %} {% assign product = product-item %} {% endcomment %}
+
+{% unless current_collection %}
+    {% assign current_collection = collection %}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+    {% assign sold_out = false %}
+{% endif %}
+
+{% assign image_size = settings.collection_prod_image_sizes %}
+
+<div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
+    <div class="product-wrapper">
+        <div class="product-img">
+            <a href="{{ product.url | within: current_collection }}">
+                {% if product.featured_image %}
+                    <img alt="{{ product.featured_image.alt | escape }}" src="{{ product.featured_image.src | img_url }}">
+                {% else %}
+                    <div class="no-product-image">
+                        <img src="{{ 'no-image.svg' | asset_url }}" />
+                    </div>
+                {% endif %}
+            </a>
+            <span>-30%</span>
+            <div class="product-action">
+                <a class="action-wishlist" href="#" title="Wishlist">
+                    <i class="ion-android-favorite-outline"></i>
+                </a>
+                <a class="action-cart" href="#" title="{{'products.product.add_to_cart' | t }}">
+                    <i class="ion-ios-shuffle-strong"></i>
+                </a>
+                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="{{'products.product.quick_view' | t }}">
+                    <i class="ion-ios-search-strong"></i>
+                </a>
+            </div>
+        </div>
+        <div class="product-content text-left">
+            <div class="product-hover-style">
+                <div class="product-title">
+                    <h4>
+                        <a href="{{ product.url | within: current_collection }}">{{ product.title }}</a>
+                    </h4>
+                </div>
+                <div class="cart-hover">
+                    <h4><a href="{{ product.url | within: current_collection }}">+ {{'products.product.add_to_cart' | t }}</a></h4>
+                </div>
+            </div>
+            <div class="product-price-wrapper">
+                {% comment %} <span>$100.00 -</span>                
+                <span class="product-price-old">$120.00 </span> {% endcomment %}
+                <span>
+                {% include 'price' with product.price %}
+                </span>
+                {% if on_sale %}
+                    <span class="product-price-old"> -
+                        {% include 'price' with product.compare_at_price %}
+                    </span>
+                {% endif %} 
+            </div>
+        </div>
+        <div class="product-list-details">
+            <h4>
+                <a href="{{ product.url | within: current_collection }}">{{ product.title }}</a>
+            </h4>
+            <div class="product-price-wrapper">
+                {% comment %} <span>$100.00</span>
+                <span class="product-price-old">$120.00 </span> {% endcomment %}
+
+                {% include 'price' with product.price %}
+                </span>
+                {% if on_sale %}
+                    <span class="product-price-old"> -
+                        {% include 'price' with product.compare_at_price %}
+                    </span>
+                {% endif %} 
+
+            </div>
+            {% comment %} description here {% endcomment %}
+            {% if product.excerpt.size > 0 %}
+                {{ product.excerpt }}
+            {% else %}
+                <p>{{ product.description | strip_html }}</p>
+            {% endif %}
+
+            <div class="shop-list-cart-wishlist">
+                <a href="#" title="{{'products.product.wishlist' | t }}"><i class="ion-android-favorite-outline"></i></a>
+                <a href="#" title="{{'products.product.add_to_cart' | t }}"><i class="ion-ios-shuffle-strong"></i></a>
+                <a href="#" data-target="#exampleModal" data-toggle="modal" title="{{'products.product.quick_view' | t }}">
+                    <i class="ion-ios-search-strong"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

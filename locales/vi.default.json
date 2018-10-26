@@ -335,6 +335,7 @@
     "collections": {
         "general": {
             "no_matches": "Sorry, there are no products matching your search.",
+            "no_products": "No products found in this collection.",
             "link_title": "Browse our {{ title }} collection",
             "items_with_count": {
                 "zero": "0 item",
@@ -697,7 +698,8 @@
             "details_tab": "Product details",
             "vat": "Inc VAT",
             "subscription_period": "Subscription with a period:",
-            "quick_view": "Quick View"
+            "quick_view": "Quick View",
+            "wishlist": "Wishlist"
         },
         "compare_list": {
             "add_to_compare": "Add to compare",

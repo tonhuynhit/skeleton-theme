@@ -28,7 +28,10 @@
       "featured_products_home_collection": "aconite",
       "featured_products_home_num": 4,
       "home_new_products": "v-new-products",
-      "home_new_products_num": 8
+      "home_new_products_num": 8,
+      
+      "allcollections_show": true,
+      "allcollections_heading": "Shop By Categories"
     }
   }
 }
